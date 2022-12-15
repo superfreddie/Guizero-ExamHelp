@@ -1,0 +1,31 @@
+sql = """
+CREATE TABLE "MEMBER_DETAILS" (
+"memberID" INTEGER NOT NULL,
+"memFirst" TEXT,
+"memLast" TEXT,
+"memEmail" TEXT,
+"memPassword" TEXT,
+"memDOB" TEXT,
+PRIMARY KEY("memberID" AUTOINCREMENT)
+);
+CREATE TABLE "LOG_DETAILS" (
+"LogID" INTEGER,
+"logType" TEXT,
+"logDate" TEXT,
+"logWeight" INTEGER,
+"logGoal" INTEGER,
+"logCurrent" INTEGER,
+"memberID" INTEGER, 
+PRIMARY KEY("LogID" AUTOINCREMENT),
+CONSTRAINT "memberID_fk" FOREIGN KEY("memberID") REFERENCES "MEMBER_DETAILS"("memberID")
+);
+insert into MEMBER_DETAILS ("memFirst", "memLast", "memEmail", "memPassword", "memDOB") values ("Freddie", "Robinson", "1", "1", "20/07/05");
+insert into LOG_DETAILS ("logType", "logDate", "logWeight", "logCurrent", "logGoal", memberID) values ("Lose", "01/12/22", "95", "80", "75", 1);
+insert into LOG_DETAILS ("logType", "logDate", "logWeight", "logCurrent", "logGoal", memberID) values ("Lose", "08/12/22", "95", "77", "75", 1);
+insert into LOG_DETAILS ("logType", "logDate", "logWeight", "logCurrent", "logGoal", memberID) values ("Lose", "15/12/22", "95", "81", "75", 1);
+insert into LOG_DETAILS ("logType", "logDate", "logWeight", "logCurrent", "logGoal", memberID) values ("Lose", "22/12/22", "95", "74", "75", 1);
+"""
+
+memberID = 1
+
+database_file = "TokaMembers.db"
