@@ -1,0 +1,22 @@
+if os.path.exists(database_file):
+    os.remove(database_file)
+
+conn = sqlite3.connect(database_file)
+cursor = conn.cursor()
+cursor.executescript(sql)
+conn.commit()
+
+def query_database(database, query): 
+    Loconn = sqlite3.connect(database)
+    cur = Loconn.cursor()   
+    cur.execute(query)
+    rows = cur.fetchall()
+    cur.close()
+    return rows
+
+def execute_sql(database, sql_statement): 
+    Loconn = sqlite3.connect(database)
+    cur = Loconn.cursor()
+    cur.execute(sql_statement)
+    Loconn.commit()
+    return cur.lastrowid
