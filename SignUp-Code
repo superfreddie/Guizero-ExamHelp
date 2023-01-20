@@ -7,10 +7,14 @@ def signup_user():
         info("Error", "Please enter an email address")
     elif "@" not in signupEmailEntry.value:
         info("Error", "Please enter a valid email")
-    elif signupPasswordEntry.value == " ":
+    elif signupPasswordEntry.value == "":
         info("Error", "Please enter a valid password")
     elif len(signupPasswordEntry.value) < 5 or len(signupPasswordEntry.value) > 20:
         info("Error", "Your Password must be between 5 and 20 characters")
+    elif signupDOBEntry.value == "":
+        info("Error", "Please enter a Date of Birth")
+    elif signupTCEntry.value == 0:
+        info("Error", "Please read the Terms and Conditions")
     else:
         sqlInsert = "insert into MEMBER_DETAILS (memFirst, memLast , memEmail, memPassword, memDOB) values ('"+signupFirstnameEntry.value+"', '"+signupLastnameEntry.value+"', '"+signupEmailEntry.value+"', '"+signupPasswordEntry.value+"', '"+signupDOBEntry.value+"');"
         execute_sql(database_file,sqlInsert)
