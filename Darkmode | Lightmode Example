@@ -1,0 +1,33 @@
+def darkmode():
+    appImage.hide()
+    appImageDark.show()
+    signupImage.hide()
+    signupImageDark.show()
+    loginImage.hide()
+    loginImageDark.show()
+    FPasswordImage.hide()
+    FPasswordImageDark.show()
+    DashboardLogo.hide()
+    DashboardLogoDark.show()
+    FreeLogo.hide()
+    FreeLogoDark.show()
+    app.bg = "#013777"
+    ADark.hide()
+    ALight.show()
+
+def lightmode():
+    appImage.show()
+    appImageDark.hide()
+    signupImage.show()
+    signupImageDark.hide()
+    loginImage.show()
+    loginImageDark.hide()
+    FPasswordImage.show()
+    FPasswordImageDark.hide()
+    DashboardLogo.show()
+    DashboardLogoDark.hide()
+    FreeLogo.show()
+    FreeLogoDark.hide()
+    app.bg = "#076ae1"
+    ADark.show()
+    ALight.hide()
