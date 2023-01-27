@@ -1,0 +1,15 @@
+def graph():
+    global user
+    conn= sqlite3.connect ("TokaMembers.db")
+    c=conn.cursor()
+    sqlget = "SELECT logDate, logCurrent from LOG_DETAILS where memberID= '"+str(memberID)+"'"
+    c.execute (sqlget)
+    df=pd.DataFrame(c.fetchall(), columns = ["Date", "Weight"])
+    print(df)
+    plt.plot(df["Date"],df["Weight"])
+    plt.xlabel("Week")
+    plt.ylabel("Weight (KG)")
+    plt.title("Progress Chart")
+    plt.savefig("i see you.png")
+    plt.show(),
+    plt.close()
