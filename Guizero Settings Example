@@ -1,0 +1,6 @@
+Access = Window(app, title="Toka Fitness Settings",bg="#076ae1", height=200, width=300)
+ADark = PushButton(Access, text="Dark Mode", command=darkmode)
+ALight = PushButton(Access, text="Light Mode", command=lightmode)
+Back = PushButton(Access, text="Back", command=sethide)
+ALight.hide()
+Access.hide()
