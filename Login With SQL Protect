@@ -1,0 +1,22 @@
+def login_user(): 
+    global memberID # variable needed to know who logged in 
+    if loginUsernameEntry.value == " ":
+        info("Error", "You must enter a valid username")  # displays error if nothing is entered
+    elif loginPasswordEntry.value == " ":
+        info("Error", "You must enter a password")
+    elif "'" in loginUsernameEntry.value : # sql injection protect
+        info("Error", "Dont even try >:(")
+    else:
+        sqlselect = "SELECT * FROM MEMBER_DETAILS WHERE memEmail = '"+loginUsernameEntry.value+"'"
+        rows = query_database(database_file, sqlselect)         # checks to see if the username is in the SQL
+        if len(rows) == 0:
+            info("Error", "Error, User not Found")
+        else:
+            info("Log In", "Success, User has been found.")
+            if loginPasswordEntry.value == rows[0][4]: #passwords match
+                info("Log In", "Passwords Match!")
+                memberID = rows[0][0]
+                login.hide()
+                Dashboard.show()
+            else:
+                info("Error", "Error, Passwords do not Match!")
