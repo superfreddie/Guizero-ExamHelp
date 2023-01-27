@@ -1,0 +1,37 @@
+sql = """
+CREATE TABLE "MEMBER_DETAILS" (
+"memberID" INTEGER NOT NULL,
+"memFirst" TEXT,
+"memLast" TEXT,
+"memUsername" TEXT,
+"memPassword" TEXT,
+PRIMARY KEY("memberID" AUTOINCREMENT)
+);
+CREATE TABLE "BOOKING_DETAILS" (
+"bookingID" INTEGER NOT NULL,
+"bookPerDay" INTEGER,
+"memberID" INTEGER, 
+PRIMARY KEY("bookingID" AUTOINCREMENT)
+CONSTRAINT "memberID_fk" FOREIGN KEY("memberID") REFERENCES "MEMBER_DETAILS"("memberID")
+);
+CREATE TABLE "SEAT_DETAILS" (
+"seatID" INTEGER NOT NULL,
+"seatName" TEXT,
+"seatDay" Text,
+"seatCost" INTEGER,
+"bookingID" INTEGER,
+PRIMARY KEY ("seatID" AUTOINCREMENT)
+CONSTRAINT "bookingID_fk" FOREIGN KEY("bookingID") REFERENCES "BOOKING_DETAILS"("bookingID")
+);
+insert into MEMBER_DETAILS ("memFirst", "memLast", "memUsername", "memPassword") values ("Freddie", "Robinson", "1", "1");
+insert into MEMBER_DETAILS ("memFirst", "memLast", "memUsername", "memPassword") values ("Frank", "Robertson", "2", "2");
+insert into BOOKING_DETAILS ("bookPerDay") values ("Friday");
+insert into BOOKING_DETAILS ("bookPerDay") values ("Saturday");
+insert into SEAT_DETAILS ("seatName", "seatDay", "seatCost") values ("A1", "Friday", "20");
+insert into SEAT_DETAILS ("seatName", "seatDay", "seatCost") values ("A2", "Friday", "25");
+insert into SEAT_DETAILS ("seatName", "seatDay", "seatCost") values ("A3", "Friday", "15");
+insert into SEAT_DETAILS ("seatName", "seatDay", "seatCost") values ("A1", "Saturday", "20");
+insert into SEAT_DETAILS ("seatName", "seatDay", "seatCost") values ("A2", "Saturday", "25");
+insert into SEAT_DETAILS ("seatName", "seatDay", "seatCost") values ("A3", "Saturday", "15");
+;
+"""
