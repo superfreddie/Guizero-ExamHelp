@@ -1,0 +1,3 @@
+import webbrowser
+def openpayment():
+    webbrowser.open("https://www.puregym.com/membership-options/")
