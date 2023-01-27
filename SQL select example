@@ -1,0 +1,6 @@
+
+def find_seats():
+    sqlselect = "SELECT COUNT (seatID) FROM SEAT_DETAILS"
+    rows = query_database(database_file, sqlselect)         # checks to see if the username is in the SQL
+    totalSeatsSold = rows[0][0]
+    info("Total", "Total seats sold = " + str(totalSeatsSold))
