@@ -1,0 +1,5 @@
+def findSatSeats():
+    sqlselect = "SELECT COUNT (seatID) FROM SEAT_DETAILS WHERE seatDay = 'Saturday'"
+    rows = query_database(database_file, sqlselect)         # checks to see if the username is in the SQL
+    seatsSoldSat = rows[0][0]
+    info("Friday Sales", "Total seats sold on Saturday = " + str(seatsSoldSat))
