@@ -1,0 +1,21 @@
+# importing datetime module
+import datetime
+
+# input date
+date_string = '2017-12-31'
+
+# giving the date format
+date_format = '%Y-%m-%d'
+
+# using try-except blocks for handling the exceptions
+try:
+
+   # formatting the date using strptime() function
+   dateObject = datetime.datetime.strptime(date_string, date_format)
+   print(dateObject)
+
+# If the date validation goes wrong
+except ValueError:
+
+   # printing the appropriate text if ValueError occurs
+   print("Incorrect data format, should be YYYY-MM-DD")
